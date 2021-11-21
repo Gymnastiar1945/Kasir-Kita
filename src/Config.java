@@ -34,7 +34,7 @@ public class Config {
            return true;
        } catch(Exception e){
            Logger.getLogger(Config.class.getName()).log(Level.SEVERE,null,e);
-           System.out.println("Koneksi gagal");
+           System.out.println("Koneksi error");
            return false;
        }
    }
