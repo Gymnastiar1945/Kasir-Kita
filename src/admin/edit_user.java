@@ -5,9 +5,12 @@
  */
 package admin;
 
+import java.sql.Connection;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import kasir.*;
+import login.Config;
 
 /**
  *
@@ -20,6 +23,8 @@ public class edit_user extends javax.swing.JFrame {
      */
     public edit_user() {
         initComponents();
+        load_table();
+        kosong();
     }
 
     /**
@@ -58,6 +63,7 @@ public class edit_user extends javax.swing.JFrame {
         btn_tambah = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
         txtpw = new javax.swing.JPasswordField();
+        btn_edit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -216,6 +222,12 @@ public class edit_user extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setOpaque(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1);
@@ -245,7 +257,7 @@ public class edit_user extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_delete);
-        btn_delete.setBounds(1240, 230, 60, 30);
+        btn_delete.setBounds(1250, 210, 60, 50);
 
         btn_tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_math_25px.png"))); // NOI18N
         btn_tambah.setBorder(null);
@@ -257,7 +269,7 @@ public class edit_user extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_tambah);
-        btn_tambah.setBounds(1240, 150, 60, 30);
+        btn_tambah.setBounds(1180, 150, 60, 50);
 
         btn_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_symbol_25px.png"))); // NOI18N
         btn_clear.setBorder(null);
@@ -269,13 +281,25 @@ public class edit_user extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_clear);
-        btn_clear.setBounds(1240, 190, 60, 30);
+        btn_clear.setBounds(1250, 150, 60, 50);
 
         txtpw.setBackground(new java.awt.Color(240, 240, 240));
         txtpw.setBorder(null);
         txtpw.setPreferredSize(new java.awt.Dimension(0, 25));
         jPanel2.add(txtpw);
         txtpw.setBounds(920, 230, 240, 30);
+
+        btn_edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/edit_25px.png"))); // NOI18N
+        btn_edit.setBorder(null);
+        btn_edit.setBorderPainted(false);
+        btn_edit.setOpaque(false);
+        btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_edit);
+        btn_edit.setBounds(1180, 210, 60, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user_admin.png"))); // NOI18N
         jPanel2.add(jLabel1);
@@ -297,14 +321,46 @@ public class edit_user extends javax.swing.JFrame {
 
     private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         // TODO add your handling code here:
+        try {
+            String sql ="DELETE FROM anggota where id_pengguna='"+txtnama.getText()+"'";
+            String sqll ="DELETE FROM akun where id_pengguna='"+txtnama.getText()+"'";
+        java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+            java.sql.PreparedStatement pstl=conn.prepareStatement(sqll);
+            pst.execute();
+            pstl.execute();
+            JOptionPane.showMessageDialog(this, "berhasil di hapus");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        } 
+        load_table();
+        kosong();
     }//GEN-LAST:event_btn_deleteActionPerformed
 
     private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
         // TODO add your handling code here:
+        try {
+            String sql = "INSERT INTO akun VALUES ('"+txtuser.getText()+"','"
+                    +txtpw.getText()+"')";
+            String sqll = "INSERT INTO anggota VALUES ('"+txtuser.getText()+"','"
+                    +txtnama.getText()+"','"+txtalamat.getText()+"','"+
+                    txthp.getText()+"','"+jComboBox1.getSelectedItem()+"')";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+            java.sql.PreparedStatement pstl=conn.prepareStatement(sqll);
+            pst.execute();
+            pstl.execute();
+            JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        } 
+        load_table();
+        kosong();        
     }//GEN-LAST:event_btn_tambahActionPerformed
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
+        kosong();
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
@@ -337,6 +393,98 @@ public class edit_user extends javax.swing.JFrame {
         new admin.riwayat_admin().setVisible(true);
     }//GEN-LAST:event_jLabel18MouseClicked
 
+    private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sql ="UPDATE anggota INNER JOIN akun ON akun.id_pengguna = anggota.id_pengguna "
+                    + "SET nama_anggota = '"+txtnama.getText()+"', alamat_anggota = '"
+                    +txtalamat.getText()+"', telp_anggota = '"
+                    +txthp.getText()+"', tipe_anggota = '"+jComboBox1.getSelectedItem()
+                    +"'WHERE anggota.id_pengguna = '"+txtuser.getText()+"'";
+            String sqll ="UPDATE akun INNER JOIN mhs ON mhs.nim = akun.nim "
+                    +"SET password = '"+txtpw.getText()
+                    +"'WHERE akun.id_pengguna = '"+txtuser.getText()+"'";
+            java.sql.Connection conn=(Connection)Config.configDB();
+            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
+            java.sql.PreparedStatement pstl=conn.prepareStatement(sqll);
+            pst.execute();
+            pstl.execute();
+            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Perubahan Data gagal " +e.getMessage());
+        } 
+        load_table();
+        kosong();
+    }//GEN-LAST:event_btn_editActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        int baris = jTable1.rowAtPoint(evt.getPoint());
+        String id = jTable1.getValueAt(baris, 1).toString();
+        txtuser.setText(id);
+        txtuser.disable();
+        if (jTable1.getValueAt(baris, 2)==null) {
+            txtnama.setText("");
+        } else {
+            txtnama.setText(jTable1.getValueAt(baris, 2).toString());
+        }
+        if (jTable1.getValueAt(baris, 3)==null) {
+            txtalamat.setText("");
+        } else {
+            txtalamat.setText(jTable1.getValueAt(baris, 3).toString());
+        }
+        if (jTable1.getValueAt(baris, 4)==null) {
+            txthp.setText("");
+        } else {
+            txthp.setText(jTable1.getValueAt(baris, 4).toString());
+        }
+        if (jTable1.getValueAt(baris, 5)==null) {
+            jComboBox1.setSelectedItem(this);
+        } else {
+            jComboBox1.setSelectedItem(jTable1.getValueAt(baris, 5).toString());
+        }
+        if (jTable1.getValueAt(baris, 6)==null) {
+            txtpw.setText("");
+        } else {
+            txtpw.setText(jTable1.getValueAt(baris, 6).toString());
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void load_table() {
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("No");
+    model.addColumn("ID User");
+    model.addColumn("Nama");
+    model.addColumn("Alamat");
+    model.addColumn("No. Hp");
+    model.addColumn("Tipe User");
+    model.addColumn("Password");
+    
+    try {
+        int no=1;
+        String sql = "select * from anggota join akun on anggota.id_pengguna = akun.id_pengguna";
+        java.sql.Connection conn=(Connection)Config.configDB();
+        java.sql.Statement stm=conn.createStatement();
+        java.sql.ResultSet res=stm.executeQuery(sql);
+        while(res.next()){
+            model.addRow (new Object[] {no++,res.getString(1),
+                res.getString(2),res.getString(3),res.getString(4),
+                res.getString(5),res.getString(7)
+            });
+        }
+        jTable1.setModel(model);
+    } catch (Exception e) {
+        
+    }
+}
+    private void kosong(){
+    txtuser.enable();
+    txtnama.setText(null);
+    txtalamat.setText(null);
+    txthp.setText(null);
+    txtpw.setText(null);
+    jComboBox1.setSelectedItem(this);
+}
 //    private void JComboBox() {
 //    DefaultComboBoxModel model = new DefaultComboBoxModel();
     
@@ -394,6 +542,7 @@ public class edit_user extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_delete;
+    private javax.swing.JButton btn_edit;
     private javax.swing.JButton btn_tambah;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
