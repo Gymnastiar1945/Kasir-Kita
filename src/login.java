@@ -130,7 +130,7 @@ public class login extends javax.swing.JFrame {
                         new kasir.menu_kasir().setVisible(true);
                         this.dispose();
                     }
-                
+//                mas oki tampan dan menawan
             } else {
                     JOptionPane.showMessageDialog(null, "id atau password salah");
             }
