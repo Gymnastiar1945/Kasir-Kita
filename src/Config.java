@@ -17,9 +17,9 @@ public class Config {
     private static Connection mysqlconfig;
     public static Connection configDB() throws SQLException{
         try {
-            String url="jdbc:mysql://localhost:3306/toko_bangunan";
+            String url="jdbc:mysql://au-1.hostddns.us:3258/toko_bangunan";
             String user="root";
-            String pass="";
+            String pass="abogoboga";
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
             mysqlconfig=DriverManager.getConnection(url, user, pass);
         } catch (Exception e) {
@@ -34,7 +34,7 @@ public class Config {
            return true;
        } catch(Exception e){
            Logger.getLogger(Config.class.getName()).log(Level.SEVERE,null,e);
-           System.out.println("Koneksi tes");
+           System.out.println("Koneksi Gagal");
            return false;
        }
    }

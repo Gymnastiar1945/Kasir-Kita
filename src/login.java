@@ -122,7 +122,7 @@ public class login extends javax.swing.JFrame {
                         && password.getText().equals(rs.getString("password"))){
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
                     this.setVisible(false);
-                    new admin.menu_admin().setVisible(true);
+                    new kasir.menu_kasir().setVisible(true);
                 }
             } else {
                     JOptionPane.showMessageDialog(null, "id atau password salah");

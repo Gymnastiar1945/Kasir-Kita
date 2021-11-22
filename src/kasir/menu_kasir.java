@@ -49,6 +49,11 @@ public class menu_kasir extends javax.swing.JFrame {
         jLabel1.setBounds(310, 60, 400, 50);
 
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel4);
         jLabel4.setBounds(720, 450, 280, 170);
 
@@ -62,10 +67,20 @@ public class menu_kasir extends javax.swing.JFrame {
         jLabel5.setBounds(370, 210, 280, 170);
 
         jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel6);
         jLabel6.setBounds(720, 210, 280, 170);
 
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jPanel1.add(jLabel7);
         jLabel7.setBounds(370, 450, 280, 170);
 
@@ -97,6 +112,24 @@ public class menu_kasir extends javax.swing.JFrame {
         this.setVisible(false);
         new kasir.transaksi().setVisible (true);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new kasir.edit_barang().setVisible (true);
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new kasir.lihat_stok().setVisible (true);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new kasir.riwayat().setVisible (true);
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments

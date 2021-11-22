@@ -53,9 +53,9 @@ public class edit_user extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_delete = new javax.swing.JButton();
+        btn_tambah = new javax.swing.JButton();
+        btn_clear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -216,41 +216,41 @@ public class edit_user extends javax.swing.JFrame {
         jPanel2.add(jTextField1);
         jTextField1.setBounds(1000, 280, 270, 30);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/trash_25px.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setOpaque(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/trash_25px.png"))); // NOI18N
+        btn_delete.setBorder(null);
+        btn_delete.setBorderPainted(false);
+        btn_delete.setOpaque(false);
+        btn_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_deleteActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
-        jButton1.setBounds(1240, 230, 60, 30);
+        jPanel2.add(btn_delete);
+        btn_delete.setBounds(1240, 230, 60, 30);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_math_25px.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setOpaque(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/plus_math_25px.png"))); // NOI18N
+        btn_tambah.setBorder(null);
+        btn_tambah.setBorderPainted(false);
+        btn_tambah.setOpaque(false);
+        btn_tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_tambahActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(1240, 150, 60, 30);
+        jPanel2.add(btn_tambah);
+        btn_tambah.setBounds(1240, 150, 60, 30);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_symbol_25px.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setOpaque(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_symbol_25px.png"))); // NOI18N
+        btn_clear.setBorder(null);
+        btn_clear.setBorderPainted(false);
+        btn_clear.setOpaque(false);
+        btn_clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_clearActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
-        jButton3.setBounds(1240, 190, 60, 30);
+        jPanel2.add(btn_clear);
+        btn_clear.setBounds(1240, 190, 60, 30);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user_admin.png"))); // NOI18N
         jPanel2.add(jLabel1);
@@ -270,17 +270,17 @@ public class edit_user extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_deleteActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_tambahActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_clearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,9 +333,9 @@ public class edit_user extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_clear;
+    private javax.swing.JButton btn_delete;
+    private javax.swing.JButton btn_tambah;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
