@@ -28,6 +28,7 @@ public class Popup_transaksi extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -64,6 +65,16 @@ public class Popup_transaksi extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(210, 230, 252));
         jPanel1.setLayout(null);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/back_40px.png"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(540, 20, 50, 50);
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(36, 36, 36));
@@ -127,9 +138,10 @@ public class Popup_transaksi extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(36, 36, 36));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/logo 75.png"))); // NOI18N
         jLabel8.setText("CV. JAYA MAJU");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(100, 10, 355, 64);
+        jLabel8.setBounds(15, 10, 440, 75);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(36, 36, 36));
@@ -298,6 +310,12 @@ public class Popup_transaksi extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new kasir.transaksi().setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -361,6 +379,7 @@ public class Popup_transaksi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

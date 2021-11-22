@@ -5,6 +5,8 @@
  */
 package admin;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 import kasir.*;
 
 /**
@@ -33,7 +35,7 @@ public class edit_user extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtalamat = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -44,10 +46,9 @@ public class edit_user extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtuser = new javax.swing.JTextField();
+        txtnama = new javax.swing.JTextField();
+        txthp = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -56,6 +57,7 @@ public class edit_user extends javax.swing.JFrame {
         btn_delete = new javax.swing.JButton();
         btn_tambah = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
+        txtpw = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,6 +68,11 @@ public class edit_user extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/back_40px.png"))); // NOI18N
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel8);
         jLabel8.setBounds(1270, 60, 50, 50);
 
@@ -82,15 +89,20 @@ public class edit_user extends javax.swing.JFrame {
         jPanel2.add(jLabel10);
         jLabel10.setBounds(760, 230, 160, 30);
 
-        jTextField3.setBackground(new java.awt.Color(236, 236, 236));
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(36, 36, 36));
-        jTextField3.setBorder(null);
-        jTextField3.setOpaque(false);
-        jPanel2.add(jTextField3);
-        jTextField3.setBounds(480, 230, 240, 30);
+        txtalamat.setBackground(new java.awt.Color(236, 236, 236));
+        txtalamat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtalamat.setForeground(new java.awt.Color(36, 36, 36));
+        txtalamat.setBorder(null);
+        txtalamat.setOpaque(false);
+        jPanel2.add(txtalamat);
+        txtalamat.setBounds(480, 230, 240, 30);
 
         jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel18);
         jLabel18.setBounds(40, 430, 60, 50);
 
@@ -99,15 +111,30 @@ public class edit_user extends javax.swing.JFrame {
         jLabel19.setBounds(40, 194, 60, 50);
 
         jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel20);
         jLabel20.setBounds(40, 270, 60, 50);
 
         jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel21);
         jLabel21.setBounds(40, 350, 60, 50);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Logout_40px.png"))); // NOI18N
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel9);
         jLabel9.setBounds(240, 60, 40, 50);
 
@@ -146,41 +173,33 @@ public class edit_user extends javax.swing.JFrame {
         jPanel2.add(jLabel15);
         jLabel15.setBounds(760, 190, 160, 30);
 
-        jTextField4.setBackground(new java.awt.Color(236, 236, 236));
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(36, 36, 36));
-        jTextField4.setBorder(null);
-        jTextField4.setOpaque(false);
-        jPanel2.add(jTextField4);
-        jTextField4.setBounds(480, 150, 240, 30);
+        txtuser.setBackground(new java.awt.Color(236, 236, 236));
+        txtuser.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtuser.setForeground(new java.awt.Color(36, 36, 36));
+        txtuser.setBorder(null);
+        txtuser.setOpaque(false);
+        jPanel2.add(txtuser);
+        txtuser.setBounds(480, 150, 240, 30);
 
-        jTextField5.setBackground(new java.awt.Color(236, 236, 236));
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(36, 36, 36));
-        jTextField5.setBorder(null);
-        jTextField5.setOpaque(false);
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(480, 190, 240, 30);
+        txtnama.setBackground(new java.awt.Color(236, 236, 236));
+        txtnama.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtnama.setForeground(new java.awt.Color(36, 36, 36));
+        txtnama.setBorder(null);
+        txtnama.setOpaque(false);
+        jPanel2.add(txtnama);
+        txtnama.setBounds(480, 190, 240, 30);
 
-        jTextField6.setBackground(new java.awt.Color(236, 236, 236));
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(36, 36, 36));
-        jTextField6.setBorder(null);
-        jTextField6.setOpaque(false);
-        jPanel2.add(jTextField6);
-        jTextField6.setBounds(920, 150, 240, 30);
-
-        jTextField8.setBackground(new java.awt.Color(236, 236, 236));
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(36, 36, 36));
-        jTextField8.setBorder(null);
-        jTextField8.setOpaque(false);
-        jPanel2.add(jTextField8);
-        jTextField8.setBounds(920, 230, 240, 30);
+        txthp.setBackground(new java.awt.Color(236, 236, 236));
+        txthp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txthp.setForeground(new java.awt.Color(36, 36, 36));
+        txthp.setBorder(null);
+        txthp.setOpaque(false);
+        jPanel2.add(txthp);
+        txthp.setBounds(920, 150, 240, 30);
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(36, 36, 36));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kasir", "admin" }));
         jComboBox1.setBorder(null);
         jComboBox1.setOpaque(false);
         jPanel2.add(jComboBox1);
@@ -252,6 +271,12 @@ public class edit_user extends javax.swing.JFrame {
         jPanel2.add(btn_clear);
         btn_clear.setBounds(1240, 190, 60, 30);
 
+        txtpw.setBackground(new java.awt.Color(240, 240, 240));
+        txtpw.setBorder(null);
+        txtpw.setPreferredSize(new java.awt.Dimension(0, 25));
+        jPanel2.add(txtpw);
+        txtpw.setBounds(920, 230, 240, 30);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user_admin.png"))); // NOI18N
         jPanel2.add(jLabel1);
         jLabel1.setBounds(0, 0, 1366, 770);
@@ -282,6 +307,40 @@ public class edit_user extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_clearActionPerformed
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new admin.menu_admin().setVisible(true);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new login.login().setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new admin.edit_barang().setVisible(true);
+    }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new admin.edit_supplier().setVisible(true);
+    }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new admin.riwayat_admin().setVisible(true);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+//    private void JComboBox() {
+//    DefaultComboBoxModel model = new DefaultComboBoxModel();
+    
+//}
     /**
      * @param args the command line arguments
      */
@@ -356,10 +415,10 @@ public class edit_user extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField txtalamat;
+    private javax.swing.JTextField txthp;
+    private javax.swing.JTextField txtnama;
+    private javax.swing.JPasswordField txtpw;
+    private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
