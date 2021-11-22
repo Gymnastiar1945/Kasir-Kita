@@ -112,18 +112,25 @@ public class login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try { 
-            String sql = "SELECT * FROM akun WHERE id_pengguna='"+name.getText()
-                    +"'AND password='"+password.getText()+"'";
+            String sql = "SELECT akun.id_pengguna, akun.password, anggota.tipe_anggota"
+                    + " FROM akun JOIN anggota ON akun.id_pengguna = anggota.id_pengguna"
+                    + " WHERE akun.id_pengguna='"+name.getText()
+                    +"'AND akun.password='"+password.getText()+ "'";
             java.sql.Connection conn=(Connection)Config.configDB();
             java.sql.PreparedStatement pst=conn.prepareStatement(sql);
             java.sql.ResultSet rs = pst.executeQuery(sql);
-            if (rs.next()) {
-                if (name.getText().equals(rs.getString("id_pengguna"))
-                        && password.getText().equals(rs.getString("password"))){
+            if (rs.next()){
+                    String user_tipe = rs.getString("tipe_anggota");
                     JOptionPane.showMessageDialog(null, "Berhasil Login");
                     this.setVisible(false);
-                    new admin.menu_admin().setVisible(true);
-                }
+                    if(user_tipe.equals("admin")){
+                        new admin.menu_admin().setVisible(true);
+                        this.dispose();
+                    } else if (user_tipe.equals("kasir")){
+                        new kasir.menu_kasir().setVisible(true);
+                        this.dispose();
+                    }
+//                mas oki tampan dan menawan
             } else {
                     JOptionPane.showMessageDialog(null, "id atau password salah");
             }

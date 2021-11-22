@@ -48,7 +48,6 @@ public class edit_user extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -178,13 +177,18 @@ public class edit_user extends javax.swing.JFrame {
         jPanel2.add(jTextField8);
         jTextField8.setBounds(920, 230, 240, 30);
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(36, 36, 36));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(null);
-        jComboBox1.setOpaque(false);
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(910, 190, 260, 29);
+        user_tipe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        user_tipe.setForeground(new java.awt.Color(36, 36, 36));
+        user_tipe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kasir", "admin" }));
+        user_tipe.setBorder(null);
+        user_tipe.setOpaque(false);
+        user_tipe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_tipeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(user_tipe);
+        user_tipe.setBounds(910, 190, 260, 29);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -282,6 +286,10 @@ public class edit_user extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void user_tipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_tipeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_user_tipeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -336,7 +344,6 @@ public class edit_user extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -361,5 +368,6 @@ public class edit_user extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField8;
+    public static final javax.swing.JComboBox<String> user_tipe = new javax.swing.JComboBox<>();
     // End of variables declaration//GEN-END:variables
 }
