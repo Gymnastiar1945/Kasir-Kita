@@ -18,7 +18,7 @@ public class menu_admin extends javax.swing.JFrame {
      */
     public menu_admin() {
         initComponents();
-    }
+    }  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,10 +31,6 @@ public class menu_admin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -128,10 +124,10 @@ public class menu_admin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    public static final javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+    public static final javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
+    public static final javax.swing.JLabel jLabel6 = new javax.swing.JLabel();
+    public static final javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
